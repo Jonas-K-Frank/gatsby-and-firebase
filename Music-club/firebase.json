@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gatsby-album-club",
+  "private_key_id": "fb5c157b368d2dc14a283b9372fb6a0ae7760d23",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCbkv6S+uiQz5KK\ngZ/f9JIYC3kMvjWqGsqL2DN6XWVtbrOwttbMcyCtMpFIpESzC0Rw4rxh6vkYRGxi\no4U6uEXLsyqlxuV7jAb98qnsX1Y9lsNwyawSC4xlio0RylwSerbo0LxTd3yuEYLY\nlWcLGllKdjO91mlOonAPZeDiiw7A1h53eiDFm7U9R4eLGcV1g07h3M6+SY60mltM\nk4MqAMThJehdeVwvgc7QjF9ZqR138kJWcfzwXiRFkXHfYt9p2VoZW0hHWBGkETjx\nT1TvvYLQXTAq6sjGyKKkeRtPKVl1DOjidjGcoakUsUucjocWrJmGQuRkBcMCA3xG\ngZZ+gRvLAgMBAAECggEABzk9DtANqmOo9ztrk/eELQ+jUD8ouLxDuViRk1Xw1rL0\nLvleYeHam5AkhM3zzqhwRhmRC67gYAsVSUM0dXSG8R1hlo70qtbmoDX7Q9ltZLCy\nZHNIxRG6NCDJyhCuU8FU6tx+UhXTOTXg8HOHdFGF4do5LtBc1WTfdSeS2JICXlvA\nR7scj8RGm012DNDcuH05iUKmmy6LngOwa/TJIQX0f8iqX6JxBHCphQdZ640eg/6T\nJzwkectpj7Wkhfmk8ybg3vT6wBF4Kwt4BkaWMrJieJVNWGR2J1C4NZYsnubScL2W\ni+wjQ9PCVVPVsEiVvVxqJ93PS2+0FuTcfuLQRzULSQKBgQDJuFdgsHAPvHcQqwPB\nkF4w8/WUcm0aid0ZfemD00jYJ/I2u+Vc7LRpbBVghOGcK0Eb6icHV3Xjd7rDHOdW\n6XFEKv1ute6546jypAhnuSHfmYnc1S9aauP8Clrzhab0VDXb30nehftbKAYNOVge\nNaKAUbQe2Y2Q+jmqSKHp6WCxdQKBgQDFb9rL9HVlGNO3NaarXQgBtK5I3U4K9eGl\nx9UQQ7LVRhoFkK8djotGdaNANNmAs3z6hkNph8EwIvVenksqjF39CxEQ635a0jBS\n8UY2t4bCgyXx21fHN2R6/4sVRdAEFPnFdgijhG8abmEgQoxNSi+Taz5VCq4Tsbrl\nnVp8i0GwPwKBgDfnqfe3DmeeENWCv9i+XQxuIEqS59/qA2fUOIp7XP3jHELFEk0N\noPZyqP4F9czlQ/crjsN/HsH65by7XvX8XpLI41HyhAXqrWEJyvaMHXItyEJ2ptgF\nNcgdSpWhHeMrD34vRPax5TafQgYaNWyx6qZrfmLqYkyivKaP2KfOMSkdAoGAAUV1\nHTcXwmzkgBuCVTwmHwywyptSM1Pd/hlJT+9/qUvoQvzpg8E1OGDtii5M8D03os1W\nhclv/wVamx9d0IpS2JxHodpCWAdedEpFb3jDD2GUzvfgmtHKfdhDZwGqEzynVxQp\nfhQOOxdW3MRQ7vZ5U/Ou1RFaiZntYCkhOggThjUCgYBfmI5h4ER6VcTsj/Mrcr6l\nBLT/EEoxnL2LmZme0Eir3Sq4kWPXlisPpcR/fga8S/paGscET51V9e4qRS+X3+wK\n1BqsqybWbd8p0u/3bkB0oMYiYbYnfsC3qERjEUalFurK+g5gDFO9XgCDsXk4B0gi\nJ8kwx0A4P6PD+oPSNFVtdQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-dgsja@gatsby-album-club.iam.gserviceaccount.com",
+  "client_id": "111936119231236921957",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-dgsja%40gatsby-album-club.iam.gserviceaccount.com"
+}
