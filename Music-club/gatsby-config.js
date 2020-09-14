@@ -37,6 +37,7 @@ module.exports = {
             collection: 'albums',
             map: doc => ({
               title: doc.title,
+              color: doc.color,
               genre: doc.genre,
               review: doc.review,
               year: doc.year,

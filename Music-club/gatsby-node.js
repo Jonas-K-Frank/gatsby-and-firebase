@@ -1,7 +1,36 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
+exports.createPages = ({graphql, actions}) => {
+    const {createPage} = actions;
+    const albumTemplate = path.resolve('src/templates/albumTemplate.js');
 
-// You can delete this file if you're not using it
+    return graphql(`
+    {
+        allAlbum {
+          edges {
+            node {
+              genre
+              review
+              title
+              year
+              artist {
+                name
+                id
+              }
+            }
+          }
+        }
+      }
+    `).then((result) => {
+        if(result.errors){
+            throw result.errors;
+        }
+
+        result.data.allAlbum.edges.forEach(album => {
+            createPage({
+                path: `/album/${album.node.id}`,
+                component: albumTemplate,
+                context: 'album.node'
+            })
+        });
+    })
+}

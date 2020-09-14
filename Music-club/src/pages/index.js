@@ -7,15 +7,21 @@ import SEO from "../components/seo"
 
 const IndexPage = (props) => {
   console.log(props);
-  return(
+  return (
   <Layout>
-{props.data.allAlbum.edges.map(edges => (
-  <div key={edges.node.id}>
+ {props.data.allAlbum.edges.map(edge => (
+  <div key={edge.node.id}>
     <h2>
-      {edges.node.title}
+{edge.node.title} - <small>{edge.node.artist.name}</small>
     </h2>
+    <div>
+      {edge.node.review}
+      </div>
+      <Link to={`/album/${edge.node.id}`}>
+      Hvad synes du?
+      </Link>
   </div>
-))}
+))} 
   </Layout>
 );
 }
@@ -25,12 +31,13 @@ export const query = graphql`
   allAlbum {
     edges {
       node {
-        id
-        review
-        year
         genre
+        review
+        title
+        year
         artist {
           name
+          id
         }
       }
     }
