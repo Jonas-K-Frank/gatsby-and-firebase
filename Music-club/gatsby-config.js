@@ -33,22 +33,29 @@ module.exports = {
         credential: require("./firebase.json"),
         types: [
           {
-            type: 'Album',
-            collection: 'albums',
+            type: 'Bourbon',
+            collection: 'bourbons',
             map: doc => ({
-              title: doc.title,
-              color: doc.color,
-              genre: doc.genre,
-              review: doc.review,
-              year: doc.year,
-              artist___NODE: doc.artist.id,
+              navn: doc.navn,
+              about: doc.about,
+              alkoholprocent: doc.alkoholprocent,
+              type: doc.type,
+              destillerier___NODE: doc.destilleri.id,
+              regioner___NODE: doc.region.id,
             }),
           },
           {
-            type: 'Artist',
-            collection: 'artists',
+            type: 'Destilleri',
+            collection: 'destillerier',
             map: doc => ({
-              name: doc.name
+              destilleri: doc.destilleri
+            }),
+          },
+          {
+            type: 'Region',
+            collection: 'regioner',
+            map: doc => ({
+              region: doc.region
             }),
           },
         ],

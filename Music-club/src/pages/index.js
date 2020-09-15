@@ -9,40 +9,42 @@ const IndexPage = (props) => {
   console.log(props);
   return (
   <Layout>
- {props.data.allAlbum.edges.map(edge => (
+  {props.data.allBourbon.edges.map(edge => (
   <div key={edge.node.id}>
     <h2>
-{edge.node.title} - <small>{edge.node.artist.name}</small>
+{edge.node.navn} - <small>{edge.node.destillerier.destilleri}</small>
     </h2>
     <div>
-      {edge.node.review}
+      {edge.node.about}
       </div>
-      <Link to={`/album/${edge.node.id}`}>
+      <Link to={`/bourbon/${edge.node.id}`}>
       Hvad synes du?
       </Link>
   </div>
-))} 
+))}  
   </Layout>
 );
 }
 
-export const query = graphql`
-{
-  allAlbum {
+ export const query = graphql`
+ {
+  allBourbon {
     edges {
       node {
-        genre
-        review
-        title
-        year
-        artist {
-          name
-          id
+        alkoholprocent
+        destillerier {
+          destilleri
         }
+        navn
+        regioner {
+          region
+        }
+        type
+        about
       }
     }
   }
 }
-`;
+`; 
 
 export default IndexPage

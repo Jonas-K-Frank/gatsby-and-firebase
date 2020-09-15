@@ -1,35 +1,37 @@
 const path = require('path');
 exports.createPages = ({graphql, actions}) => {
     const {createPage} = actions;
-    const albumTemplate = path.resolve('src/templates/albumTemplate.js');
+    const bourbonTemplate = path.resolve('src/templates/bourbonTemplate.js');
 
     return graphql(`
     {
-        allAlbum {
-          edges {
-            node {
-              genre
-              review
-              title
-              year
-              artist {
-                name
-                id
-              }
+      allBourbon {
+        edges {
+          node {
+            alkoholprocent
+            destillerier {
+              destilleri
             }
+            navn
+            regioner {
+              region
+            }
+            type
+            about
           }
         }
       }
+    }
     `).then((result) => {
         if(result.errors){
             throw result.errors;
         }
 
-        result.data.allAlbum.edges.forEach(album => {
+        result.data.allBourbon.edges.forEach(bourbon => {
             createPage({
-                path: `/album/${album.node.id}`,
-                component: albumTemplate,
-                context: 'album.node'
+                path: `/bourbon/${bourbon.node.id}`,
+                component: bourbonTemplate,
+                context: 'bourbon.node'
             })
         });
     })
