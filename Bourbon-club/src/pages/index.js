@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SektionsKomponent from "../components/Produktet"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
@@ -10,7 +11,7 @@ const IndexPage = (props) => {
   return (
   <Layout>
   {props.data.allBourbon.edges.map(edge => (
-  <div key={edge.node.id}>
+  <SektionsKomponent key={edge.node.id}>
     <h2>
 {edge.node.navn} - <small>{edge.node.destillerier.destilleri}</small>
     </h2>
@@ -20,7 +21,7 @@ const IndexPage = (props) => {
       <Link to={`/bourbon/${edge.node.id}`}>
       Hvad synes du?
       </Link>
-  </div>
+  </SektionsKomponent>
 ))}  
   </Layout>
 );
@@ -31,7 +32,9 @@ const IndexPage = (props) => {
   allBourbon {
     edges {
       node {
+        about
         alkoholprocent
+        id
         destillerier {
           destilleri
         }
@@ -40,7 +43,6 @@ const IndexPage = (props) => {
           region
         }
         type
-        about
       }
     }
   }
