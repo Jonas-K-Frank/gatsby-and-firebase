@@ -3,8 +3,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Produkt from "../components/Produktet"
-/* import Image from "../components/image"
-import SEO from "../components/seo" */
+//import Image from "../components/image"
+//import SEO from "../components/seo"
 
 import styled from 'styled-components'
 
@@ -25,11 +25,11 @@ const LinkButton = styled.div`
 `;
 
 const IndexPage = (props) => {
-  console.log(props);
   return (
   <Layout>
   {props.data.allBourbon.edges.map(edge => (
   <Produkt 
+    billede={edge.node.localImage.childImageSharp.fixed}
     navn={edge.node.navn}
     destilleri={edge.node.destillerier.destilleri}
     alkoholprocent={edge.node.alkoholprocent}
@@ -56,10 +56,17 @@ const IndexPage = (props) => {
         about
         alkoholprocent
         id
+        localImage {
+          childImageSharp {
+            fixed(width: 150){
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        navn
         destillerier {
           destilleri
         }
-        navn
         regioner {
           region
         }

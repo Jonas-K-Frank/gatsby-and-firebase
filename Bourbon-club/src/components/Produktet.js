@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
+import Img from 'gatsby-image'
 
-const Wrapper = styled.section`
+const ProduktWrapper = styled.section`
     border: 1px solid #ddd;
     padding: 18px;
     background: #fff;
     margin-bottom: 8px;
+    display: flex;
 
 small{
     font-family: Arial, Helvetica, sans-serif;
@@ -24,9 +26,29 @@ om{
 };
     
 `;
-const Produkt = ({navn, destilleri, alkoholprocent, region, type, about, children}) => {
+
+const ProduktImageWrapper = styled.div`
+        max-width: 150px;
+
+        img{
+            max-width: 150px;
+        }
+`;
+
+const ProduktContentWrapper = styled.div`
+        flex-grow: 1;
+        padding-left: 10px;
+`;
+
+
+const Produkt = ({navn, billede, destilleri, alkoholprocent, region, type, about, children}) => {
     return (
-    <Wrapper>
+    <ProduktWrapper>
+
+        <ProduktImageWrapper>
+            <Img fixed={billede}/>
+        </ProduktImageWrapper>
+        <ProduktContentWrapper>
        <h2>{navn} </h2>
        
        <manchet>
@@ -42,7 +64,8 @@ const Produkt = ({navn, destilleri, alkoholprocent, region, type, about, childre
         <om>{about}</om>
 
         <div>{children}</div>
-    </Wrapper>
+        </ProduktContentWrapper>
+    </ProduktWrapper>
     )
 }
 export default Produkt;

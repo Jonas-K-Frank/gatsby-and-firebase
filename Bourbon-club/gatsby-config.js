@@ -29,6 +29,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'Bourbon',
+        imagePath: 'imageURL',
+      },
+    },
+    {
       resolve: 'gatsby-firesource',
       options: {
         credential: require("./firebase.json"),
@@ -41,6 +48,7 @@ module.exports = {
               about: doc.about,
               alkoholprocent: doc.alkoholprocent,
               type: doc.type,
+              imageURL: doc.imageURL,
               destillerier___NODE: doc.destilleri.id,
               regioner___NODE: doc.region.id,
             }),

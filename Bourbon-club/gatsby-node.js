@@ -8,17 +8,7 @@ exports.createPages = ({graphql, actions}) => {
       allBourbon {
         edges {
           node {
-            about
-            alkoholprocent
             id
-            destillerier {
-              destilleri
-            }
-            navn
-            regioner {
-              region
-            }
-            type
           }
         }
       }
@@ -32,7 +22,7 @@ exports.createPages = ({graphql, actions}) => {
             createPage({
                 path: `/bourbon/${bourbon.node.id}`,
                 component: bourbonTemplate,
-                context: bourbon.node
+                context: {bourbonId: bourbon.node.id}
             })
         });
     })
