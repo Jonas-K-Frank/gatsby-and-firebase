@@ -1,22 +1,19 @@
 import React from 'react';
 import Layout from "../components/layout"
-import SektionsKomponent from "../components/Produktet"
+import Produkt from "../components/Produktet"
 
 
 const BourbonTemplate = (props) => {
     console.log(props);
     return (
         <Layout>
-            <SektionsKomponent>
-                <h2>
-                {props.pageContext.navn} <small>- {props.pageContext.destillerier.destilleri}</small> 
-                </h2>
-                <small>Alkoholprocent: {props.pageContext.alkoholprocent}</small><br></br>
-    <small>Type: {props.pageContext.type}</small> <br></br><small>Region: {props.pageContext.regioner.region}</small>
-    <p>
-        {props.pageContext.about}
-    </p>
-            </SektionsKomponent>
+            <Produkt
+                navn={props.pageContext.navn}
+                destilleri={props.pageContext.destillerier.destilleri}
+                alkoholprocent={props.pageContext.alkoholprocent}
+                region={props.pageContext.regioner.region}
+                type={props.pageContext.type}
+                about={props.pageContext.about}/>
         </Layout>
     )
 }

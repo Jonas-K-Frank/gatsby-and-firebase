@@ -2,26 +2,47 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SektionsKomponent from "../components/Produktet"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Produkt from "../components/Produktet"
+/* import Image from "../components/image"
+import SEO from "../components/seo" */
+
+import styled from 'styled-components'
+
+const LinkButton = styled.div`
+  text-align: right;
+
+  a{
+    padding: 8px;
+    background: rebeccapurple;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
+
+    &:hover{
+      background: indigo;
+    }
+  }
+`;
 
 const IndexPage = (props) => {
   console.log(props);
   return (
   <Layout>
   {props.data.allBourbon.edges.map(edge => (
-  <SektionsKomponent key={edge.node.id}>
-    <h2>
-{edge.node.navn} - <small>{edge.node.destillerier.destilleri}</small>
-    </h2>
-    <div>
-      {edge.node.about}
-      </div>
-      <Link to={`/bourbon/${edge.node.id}`}>
+  <Produkt 
+    navn={edge.node.navn}
+    destilleri={edge.node.destillerier.destilleri}
+    alkoholprocent={edge.node.alkoholprocent}
+    type={edge.node.type}
+    region={edge.node.regioner.region}
+    about={edge.node.about}
+    key={edge.node.id}>
+  <LinkButton>
+    <Link to={`/bourbon/${edge.node.id}`}>
       Hvad synes du?
-      </Link>
-  </SektionsKomponent>
+    </Link>
+  </LinkButton>
+  </Produkt>
 ))}  
   </Layout>
 );
