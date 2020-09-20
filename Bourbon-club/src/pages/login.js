@@ -5,7 +5,7 @@ import {useAuth} from '../components/firebase'
 import Layout from "../components/layout"
 //import SEO from "../components/seo"
 
-const SecondPage = () => {
+const Login = () => {
 
     const [formValues, setFormValues] = useState({email: '', password: ''});
     const {firebase} = useAuth();
@@ -26,7 +26,7 @@ const SecondPage = () => {
     return (
   <Layout>
       <form onSubmit={handleSubmit}>
-          <input value={formValues.email} name="name" onChange={handleInputChange}placeholder="email" type="email" />
+          <input value={formValues.email} name="email" onChange={handleInputChange}placeholder="email" type="email" />
           <input value={formValues.password} name="password" onChange={handleInputChange} placeholder="password" type="password" />
           <button type="submit">
               Login
@@ -36,4 +36,4 @@ const SecondPage = () => {
 )
 }
 
-export default SecondPage
+export default Login
