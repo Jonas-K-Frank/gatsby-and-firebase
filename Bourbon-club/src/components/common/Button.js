@@ -12,5 +12,9 @@ export const Button = styled.button`
 
     &:hover {
         background:indigo;
+        border: 1px solid #fff;
+    }
+    &:active {
+        border: 1px solid #fff;
     }
 `;
