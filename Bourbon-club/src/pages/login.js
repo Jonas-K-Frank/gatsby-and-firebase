@@ -1,14 +1,13 @@
-import React, {useState} from "react"
-import { Link } from "gatsby"
-import {useAuth} from '../components/firebase'
-
-import Layout from "../components/layout"
-//import SEO from "../components/seo"
+import React, {useState, useContext} from "react"
+import {FirebaseContext} from '../components/firebase'
+import {Form} from '../components/common/Form';
+import {Input} from '../components/common/Input';
+import {Button} from '../components/common/Button';
 
 const Login = () => {
 
     const [formValues, setFormValues] = useState({email: '', password: ''});
-    const {firebase} = useAuth();
+    const {firebase} = useContext(FirebaseContext);
 
     function handleSubmit (event){
         event.preventDefault();
@@ -24,15 +23,15 @@ const Login = () => {
         }))
     }
     return (
-  <Layout>
-      <form onSubmit={handleSubmit}>
-          <input value={formValues.email} name="email" onChange={handleInputChange}placeholder="email" type="email" />
-          <input value={formValues.password} name="password" onChange={handleInputChange} placeholder="password" type="password" />
-          <button type="submit">
+  <section>
+      <Form onSubmit={handleSubmit}>
+          <Input value={formValues.email} name="email" onChange={handleInputChange}placeholder="email" type="email" />
+          <Input value={formValues.password} name="password" onChange={handleInputChange} placeholder="password" type="password" />
+          <Button type="submit" block>
               Login
-          </button>
-      </form>
-  </Layout>
+          </Button>
+      </Form>
+  </section>
 )
 }
 

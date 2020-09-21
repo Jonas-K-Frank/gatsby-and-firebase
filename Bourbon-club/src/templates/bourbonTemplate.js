@@ -7,7 +7,7 @@ import {graphql} from 'gatsby'
 const BourbonTemplate = (props) => {
     console.log(props.data);
     return (
-        <Layout>
+        <section>
             <Produkt
                 billede={props.data.bourbon.localImage.childImageSharp.fixed}
                 navn={props.data.bourbon.navn}
@@ -16,7 +16,7 @@ const BourbonTemplate = (props) => {
                 region={props.data.bourbon.regioner.region}
                 type={props.data.bourbon.type}
                 about={props.data.bourbon.about}/>
-        </Layout>
+        </section>
     )
 }
 

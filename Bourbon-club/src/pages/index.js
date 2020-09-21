@@ -26,7 +26,7 @@ const LinkButton = styled.div`
 
 const IndexPage = (props) => {
   return (
-  <Layout>
+  <section>
   {props.data.allBourbon.edges.map(edge => (
   <Produkt 
     billede={edge.node.localImage.childImageSharp.fixed}
@@ -44,7 +44,7 @@ const IndexPage = (props) => {
   </LinkButton>
   </Produkt>
 ))}  
-  </Layout>
+  </section>
 );
 }
 
