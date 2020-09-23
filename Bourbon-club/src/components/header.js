@@ -1,7 +1,7 @@
 import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 import React, {useContext} from "react"
-import {firebase, FirebaseContext} from './firebase'
+import {FirebaseContext} from './firebase'
 import styled from 'styled-components'
 
 const LogoutLink = styled.span`
@@ -55,7 +55,6 @@ const Divider = styled.span`
 `;
 const Header = ({ siteTitle }) => {
   const {firebase, user} = useContext(FirebaseContext);
-console.log(user);
 
 function handleLogoutClick() {
   firebase.logout().then(() => navigate('/login'))

@@ -1,11 +1,12 @@
-import React from 'react';
-import Layout from "../components/layout"
+import React, {useContext} from 'react';
 import Produkt from "../components/Produktet"
-import {graphql} from 'gatsby'
+import {Comments} from '../components/common';
+import {FirebaseContext} from '../components/firebase';
+import {graphql} from 'gatsby';
 
 
 const BourbonTemplate = (props) => {
-    console.log(props.data);
+    const {firebase} = useContext(FirebaseContext)
     return (
         <section>
             <Produkt
@@ -16,7 +17,12 @@ const BourbonTemplate = (props) => {
                 region={props.data.bourbon.regioner.region}
                 type={props.data.bourbon.type}
                 about={props.data.bourbon.about}/>
+                {!!firebase &&
+                <Comments firebase={firebase} bourbonId={props.data.bourbon.id} />
+                
+                }
         </section>
+        
     )
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import getFirebaseInstance from "."
+import getFirebaseInstance from "./firebase"
 import loadFirebaseDependencies from "./loadFirebaseDependencies"
 
 function useAuth() {
