@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from "react"
 import styled from 'styled-components'
-import {Button} from './Button'
-import {Input} from './Input'
+import {Button} from './Button';
+import {Input} from './Input';
+import moment from 'moment';
+import 'moment/locale/da';
+
+console.log(moment.locale());
 
 const CommentForm = styled.form`
     display: flex;
@@ -28,9 +32,12 @@ const CommentListItem = styled.div`
     }
 `;
 
+
 export const Comments = ({firebase, bourbonId}) => {
 
     const [comments, setComments] = useState([]);
+    const [commentText, setCommentText] = useState('');
+    
 
 
     useEffect(() => {
@@ -56,18 +63,29 @@ export const Comments = ({firebase, bourbonId}) => {
 
     }, [])    
 
+    function handlePostCommentSubmit(e) {
+        e.preventDefault();
+        firebase.postComment({
+            text: commentText,
+            bourbonId 
+        })
+    }
+
     return(
         <div>
-            <CommentForm>
-                <Input />
-                <Button>
+            <CommentForm onSubmit={handlePostCommentSubmit}>
+                <Input value={commentText} onChange={e => {
+                    e.persist();
+                    setCommentText(e.target.value);
+                }}/>
+                <Button type='submit'>
                     Del din mening
                 </Button>
             </CommentForm>
             {comments.map(comments => (
                 <CommentListItem key={comments.id}>
                     <strong>
-                        {comments.username}
+                        {comments.username} - {moment(comments.dateCreated.toDate()).format('lll')}
                     </strong>
                     <div>
                         {comments.text}

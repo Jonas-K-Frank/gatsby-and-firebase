@@ -23,10 +23,19 @@ class Firebase {
     })
   }
 
+  async postComment({text, bourbonId}){
+    const postCommentCallable = this.functions.httpsCallable('postComment');
+    return postCommentCallable({
+      text,
+      bourbonId 
+    });
+  }
+
   subscribeToComments({bourbonId, onSnapshot}){
     const bourbonsRef = this.db.collection('bourbons').doc(bourbonId)
     return this.db.collection('comments')
     .where('bourbon', '==', bourbonsRef)
+    .orderBy('dateCreated', 'desc')
     .onSnapshot(onSnapshot)
     }
   
