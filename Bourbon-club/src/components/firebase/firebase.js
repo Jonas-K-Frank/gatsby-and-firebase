@@ -23,12 +23,13 @@ class Firebase {
     })
   }
 
-  subscribeToComments({bourbonId}){
+  subscribeToComments({bourbonId, onSnapshot}){
     const bourbonsRef = this.db.collection('bourbons').doc(bourbonId)
-    return this.db.collection('comments').where('bourbon', '==', bourbonsRef).onSnapshot((s) => {
-console.log("This is s", s);
-    })
-  }
+    return this.db.collection('comments')
+    .where('bourbon', '==', bourbonsRef)
+    .onSnapshot(onSnapshot)
+    }
+  
 
   async login({email, password}) {
     return this.auth.signInWithEmailAndPassword(email, password);
