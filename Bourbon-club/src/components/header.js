@@ -53,8 +53,19 @@ const Divider = styled.span`
   padding-right: 1px;
   background: #ddd;
 `;
+const AdminLinks = styled.span`
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+`;
+
+
+
 const Header = ({ siteTitle }) => {
   const {firebase, user} = useContext(FirebaseContext);
+
+  console.log(user);
 
 function handleLogoutClick() {
   firebase.logout().then(() => navigate('/login'))
@@ -73,6 +84,20 @@ return (
               <UserInfo>
                 Hej {user.username ||user.email}
                 <div>
+                  {!!user.isAdmin && 
+                  <>
+                  <AdminLinks>
+                    <Link to="/ny-bourbon">
+                    Tilføj bourbon
+                    </Link>
+                    <Divider />
+                    <Link to="/ny-cocktail">
+                    Tilføj cocktail
+                    <Divider/>
+                    </Link>
+                    </AdminLinks>
+                   </>
+                  }
                   <LogoutLink onClick={handleLogoutClick}>
                     Log ud
                   </LogoutLink>

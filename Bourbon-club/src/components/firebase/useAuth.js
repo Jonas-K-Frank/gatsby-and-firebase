@@ -17,13 +17,18 @@ function useAuth() {
 
             unsubscribe = firebaseInstance.auth.onAuthStateChanged(userResult => {
                 if (userResult) {
-                    firebaseInstance.getUserProfile({
-                        userId: userResult.uid
-                    }).then(result => {
-                        setUser({
-                            ...userResult,
-                            username: result.empty ? null : result.docs[0].id
-                        });
+                    publicProfileUnsubscribe = firebaseInstance.getUserProfile({
+                        userId: userResult.uid,
+                        onSnapshot: r => {
+                            firebaseInstance.auth.currentUser.getIdTokenResult(true).then(token => {
+                                setUser({
+                                    ...userResult,
+                                    isAdmin: token.claims.admin,
+                                    username: r.empty ? null : r.docs[0].id
+                                });
+                            })
+
+                        }
                     })
                     
                 }else{
